@@ -47,6 +47,14 @@ namespace MagicVilla_VillaAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<VillaDTO> CreateVilla([FromBody] VillaDTO villaDTO)
         {
+            // Caso eu retire a tag[ApiController] lá em cima
+            // mas quero verificar as validações do Controller eu uso o if abaixo
+            // if (!ModelState.IsValid)
+            // {
+            //     return BadRequest(ModelState);
+            // }
+
+
             if (villaDTO == null)
             {
                 return BadRequest(villaDTO);
