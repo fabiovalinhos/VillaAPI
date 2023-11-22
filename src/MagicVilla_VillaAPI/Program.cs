@@ -1,8 +1,19 @@
+using MagicVilla_VillaAPI.Data;
 using MagicVilla_VillaAPI.Logging;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Conecção com banco de dados
+string? connectionString = builder.Configuration.GetConnectionString("DefaultSQLConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(
+    option => option.UseNpgsql(connectionString),
+    ServiceLifetime.Transient,
+    ServiceLifetime.Transient
+);
+
 
 builder.Services.AddControllers(option =>
 {

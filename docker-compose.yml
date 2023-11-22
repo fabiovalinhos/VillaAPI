@@ -1,0 +1,32 @@
+version: '1.0'
+
+services:
+  postgres:
+    image: postgres
+    container_name: Postgres_VillaAPI
+    restart: always
+    environment:
+      POSTGRES_DB: villa-api
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgAdmin_dotnet_Villa
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "4040:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+volumes:
+  pg_data:
+  pgadmin_data:
