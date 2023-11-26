@@ -3,6 +3,7 @@ using System;
 using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MagicVilla_VillaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231125222354_AddVillaTableUpdateTime")]
+    partial class AddVillaTableUpdateTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,40 +73,40 @@ namespace MagicVilla_VillaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6920),
+                            CreatedDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710),
                             Details = "Esta área é description",
                             ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
                             Name = "Royal Villa",
                             Occupancy = 5,
                             Rate = 200.0,
                             Sqft = 500,
-                            UpdateDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6920)
+                            UpdateDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710)
                         },
                         new
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6930),
+                            CreatedDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710),
                             Details = "Diamond detalhes",
                             ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
                             Name = "Diamond Villa",
                             Occupancy = 3,
                             Rate = 500.0,
                             Sqft = 450,
-                            UpdateDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6930)
+                            UpdateDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710)
                         },
                         new
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6930),
+                            CreatedDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710),
                             Details = "Ruby detalhes",
                             ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg",
                             Name = "Ruby Villa",
                             Occupancy = 6,
                             Rate = 100.0,
                             Sqft = 700,
-                            UpdateDate = new DateTime(2023, 11, 25, 22, 51, 19, 326, DateTimeKind.Utc).AddTicks(6930)
+                            UpdateDate = new DateTime(2023, 11, 25, 22, 23, 54, 87, DateTimeKind.Utc).AddTicks(7710)
                         });
                 });
 #pragma warning restore 612, 618

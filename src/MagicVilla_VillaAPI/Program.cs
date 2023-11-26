@@ -14,6 +14,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(
     ServiceLifetime.Transient
 );
 
+// Problemas com o timestamp. Ao fazer a migration e tentar dar update no banco
+// ele ficava reclamando de UTC mesmo eu usando DateTime.UtcNow nos campos dos seeds 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 builder.Services.AddControllers(option =>
 {
