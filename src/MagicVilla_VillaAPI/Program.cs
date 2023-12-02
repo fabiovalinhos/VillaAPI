@@ -1,6 +1,8 @@
 using AutoMapper;
 using MagicVilla_VillaAPI;
 using MagicVilla_VillaAPI.Data;
+using MagicVilla_VillaAPI.Repository;
+using MagicVilla_VillaAPI.Repository.IRepository;
 using Microsoft.AspNetCore.Routing.Internal;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +26,7 @@ var configMap = new MapperConfiguration(cfg =>
 IMapper mapper = configMap.CreateMapper();
 
 builder.Services.AddSingleton(mapper);
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 // Problemas com o timestamp. Ao criar o seed e fazer a migration e tentar dar update no banco
 // ele ficava reclamando de UTC mesmo eu usando DateTime.UtcNow nos campos dos seeds 
