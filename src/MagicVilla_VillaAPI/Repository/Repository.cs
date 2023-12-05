@@ -1,5 +1,4 @@
 using MagicVilla_VillaAPI.Data;
-using MagicVilla_VillaAPI.Models;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using MagicVilla_VillaAPI.Repository.IRepository;
