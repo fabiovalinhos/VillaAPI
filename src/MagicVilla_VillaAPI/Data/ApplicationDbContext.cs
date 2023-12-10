@@ -8,6 +8,7 @@ namespace MagicVilla_VillaAPI.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillaNumbers { get; set; }
 
 
         // ele nao usou o mapping ao criar a migration.

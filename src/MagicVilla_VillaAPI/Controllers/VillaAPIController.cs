@@ -10,7 +10,7 @@ namespace MagicVilla_VillaAPI.Controllers
 {
 
     // [Route("api/[controller]")]
-    [Route("api/MagicVilla")]
+    [Route("api/VillaAPI")]
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
@@ -123,8 +123,9 @@ namespace MagicVilla_VillaAPI.Controllers
 
                 // villaDTO.Id = VillaStore.villaList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
                 // VillaStore.villaList.Add(villaDTO);
-
                 Villa villa = _mapper.Map<Villa>(createDTO);
+
+                await _dbVilla.CreateAsync(villa);
                 _response.Result = _mapper.Map<VillaDTO>(villa);
                 _response.StatusCode = HttpStatusCode.Created;
                 return CreatedAtRoute("GetVilla", new { id = villa.Id }, _response);
