@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static MagicVilla_Utility.SD
+using static MagicVilla_Utility.SD;
 
 namespace MagicVilla_Web.Models
 {
