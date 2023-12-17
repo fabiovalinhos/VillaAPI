@@ -1,7 +1,18 @@
+using AutoMapper;
+using MagicVilla_Web;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+var configMap = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile<MappingConfig>();
+});
+IMapper mapper = configMap.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 
