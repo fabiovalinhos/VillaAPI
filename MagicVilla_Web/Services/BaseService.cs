@@ -1,8 +1,8 @@
 using System.Text;
-using System.Text.Json;
 using MagicVilla_Utility;
 using MagicVilla_Web.Models;
 using MagicVilla_Web.Services.IServices;
+using Newtonsoft.Json;
 
 namespace MagicVilla_Web.Services
 {
@@ -25,7 +25,9 @@ namespace MagicVilla_Web.Services
                 message.RequestUri = new Uri(apiRequest.Url);
                 if (apiRequest.Data != null)
                 {
-                    message.Content = new StringContent(JsonSerializer.Serialize(apiRequest.Data),
+                    // message.Content = new StringContent(JsonSerializer.Serialize(apiRequest.Data),
+                    // Encoding.UTF8, "application/json");
+                    message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data),
                     Encoding.UTF8, "application/json");
                 }
 
@@ -50,7 +52,11 @@ namespace MagicVilla_Web.Services
                 apiResponse = await client.SendAsync(message);
 
                 var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                var APIResponse = JsonSerializer.Deserialize<T>(apiContent);
+
+                // Caso eu deseje um json serializer nativo eu uso o comentado
+                // var APIResponse = JsonSerializer.Deserialize<T>(apiContent);
+                var APIResponse = JsonConvert.DeserializeObject<T>(apiContent);
+
                 return APIResponse;
             }
             catch (Exception e)
@@ -61,8 +67,11 @@ namespace MagicVilla_Web.Services
                     IsSuccess = false
                 };
 
-                var res = JsonSerializer.Serialize(dto);
-                var APIResponse = JsonSerializer.Deserialize<T>(res);
+                // var res = JsonSerializer.Serialize(dto);
+                // var APIResponse = JsonSerializer.Deserialize<T>(res);
+                var res = JsonConvert.SerializeObject(dto);
+                var APIResponse = JsonConvert.DeserializeObject<T>(res);
+
                 return APIResponse;
             }
         }
