@@ -11,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IVillaService, VillaService>();
 builder.Services.AddScoped<IVillaService, VillaService>();
 
+builder.Services.AddHttpClient<IVillaNumberService, VillaNumberService>();
+builder.Services.AddScoped<IVillaNumberService, VillaNumberService>();
+
 var configMap = new MapperConfiguration(cfg =>
 {
     cfg.AddProfile<MappingConfig>();
