@@ -25,8 +25,7 @@ namespace MagicVilla_VillaAPI.Controllers
         //     this._logger = logger;
         // }
 
-        public VillaAPIController(
-            IVillaRepository dbVilla,
+        public VillaAPIController(IVillaRepository dbVilla,
             IMapper mapper1)
         {
             this._dbVilla = dbVilla;
