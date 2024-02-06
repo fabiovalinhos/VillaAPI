@@ -27,6 +27,7 @@ IMapper mapper = configMap.CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 builder.Services.AddScoped<IVillaNumberRepository, VillaNumberRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Problemas com o timestamp. Ao criar o seed e fazer a migration e tentar dar update no banco
 // ele ficava reclamando de UTC mesmo eu usando DateTime.UtcNow nos campos dos seeds 

@@ -34,14 +34,17 @@ namespace MagicVilla_VillaAPI.Repository
 
         public async Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO)
         {
-            var user = _db.LocalUsers.FirstOrDefault(
-u => u.UserName.ToLower() == loginRequestDTO.UserName.ToLower() &&
+            var user = _db.LocalUsers.FirstOrDefault(u => u.UserName.ToLower() == loginRequestDTO.UserName.ToLower() &&
             u.Password == loginRequestDTO.Password
             );
 
             if (user == null)
             {
-                return null;
+                return new LoginResponseDTO()
+                {
+                    Token = "",
+                    User = null
+                };
             }
 
             // if found a user generate JWT token
