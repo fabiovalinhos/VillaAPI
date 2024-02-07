@@ -8,6 +8,12 @@ namespace MagicVilla_VillaAPI.Models
 {
     public class APIResponse
     {
+
+        public APIResponse()
+        {
+            this.ErrorMesages = new List<string>();
+        }
+
         public HttpStatusCode StatusCode { get; set; }
 
         public bool IsSuccess { get; set; } = true;
