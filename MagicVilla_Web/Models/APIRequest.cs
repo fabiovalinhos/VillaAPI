@@ -9,5 +9,6 @@ namespace MagicVilla_Web.Models
         public string Url { get; set; } = string.Empty;
 
         public object Data { get; set; } = string.Empty;
+        public string Token { get; set; }
     }
 }

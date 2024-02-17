@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Text;
 using MagicVilla_Utility;
 using MagicVilla_Web.Models;
@@ -48,6 +49,12 @@ namespace MagicVilla_Web.Services
                 }
 
                 HttpResponseMessage apiResponse = null;
+
+                if (!string.IsNullOrEmpty(apiRequest.Token))
+                {
+                    client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", apiRequest.Token);
+                }
 
                 apiResponse = await client.SendAsync(message);
 
