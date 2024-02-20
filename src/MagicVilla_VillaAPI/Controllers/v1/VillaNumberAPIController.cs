@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MagicVilla_VillaAPI.Controllers
+namespace MagicVilla_VillaAPI.Controllers.v1
 {
 
     [Route("api/v{version:apiVersion}/VillaNumberAPI")]
     [ApiController]
     [ApiVersion("1.0")]
-    [ApiVersion("2.0")]
     public class VillaNumberAPIController : ControllerBase
     {
 
@@ -34,7 +33,7 @@ namespace MagicVilla_VillaAPI.Controllers
         }
 
         [HttpGet]
-        [MapToApiVersion("1.0")]
+        // [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<APIResponse>> GetVillaNumbers()
         {
@@ -51,13 +50,6 @@ namespace MagicVilla_VillaAPI.Controllers
                 _response.ErrorMesages = new List<string> { ex.ToString() };
             }
             return _response;
-        }
-
-        [MapToApiVersion("2.0")]
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value 1", "value 2" };
         }
 
         [HttpGet("{id:int}", Name = "GetVillaNumber")]
