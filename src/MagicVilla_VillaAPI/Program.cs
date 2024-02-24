@@ -29,6 +29,7 @@ var configMap = new MapperConfiguration(cfg =>
 
 IMapper mapper = configMap.CreateMapper();
 
+builder.Services.AddResponseCaching();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 builder.Services.AddScoped<IVillaNumberRepository, VillaNumberRepository>();
