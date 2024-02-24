@@ -4,7 +4,6 @@ using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.Dto;
 using MagicVilla_VillaAPI.Repository.IRepository;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagicVilla_VillaAPI.Controllers.v1
@@ -30,6 +29,12 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             this._dbVilla = dbVilla;
             this._mapper = mapper1;
             this._response = new();
+        }
+
+        [HttpGet("GetString")]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "String 1", "String 2" };
         }
 
         [HttpGet]

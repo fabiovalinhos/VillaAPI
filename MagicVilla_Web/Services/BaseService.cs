@@ -65,8 +65,9 @@ namespace MagicVilla_Web.Services
                     // Caso eu deseje um json serializer nativo eu uso o comentado
                     // var APIResponse = JsonSerializer.Deserialize<T>(apiContent);
                     APIResponse ApiResponse = JsonConvert.DeserializeObject<APIResponse>(apiContent);
-                    if (apiResponse.StatusCode == System.Net.HttpStatusCode.BadRequest ||
-                    apiResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    if (ApiResponse != null && (
+                        apiResponse.StatusCode == System.Net.HttpStatusCode.BadRequest ||
+                    apiResponse.StatusCode == System.Net.HttpStatusCode.NotFound))
                     {
                         ApiResponse.StatusCode = System.Net.HttpStatusCode.BadRequest;
                         ApiResponse.IsSuccess = false;
