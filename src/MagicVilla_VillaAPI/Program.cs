@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using MagicVilla_VillaAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(
     ServiceLifetime.Transient,
     ServiceLifetime.Transient
 );
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 var configMap = new MapperConfiguration(cfg =>
 {
